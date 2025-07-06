@@ -5,6 +5,18 @@
 
 void insertion_sort(int A[], int n)
 {
+    int i, j, temp;
+    for ( i = 0; i < n; i++)
+    {
+        temp = A[i];
+        j = i-1;
+        while (j>=0 && temp < A[j])
+        {
+            A[j+1] = A[j];
+            j--;
+        }
+        A[j+1] = temp;
+    }
     
 }
 
@@ -32,15 +44,15 @@ int main()
     {
         A[i] = rand() % 1000;
     }
-    display(A,n);
+    // display(A,n);
 
     start = clock();
-    selection_sort(A, n);
+    insertion_sort(A, n);
     end = clock();
 
     time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-    display(A, n);
+    // display(A, n);
     printf("Time taken is %lf seconds\n", time_taken);
     return 0;
 }
