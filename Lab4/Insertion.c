@@ -44,7 +44,7 @@ int main()
     {
         A[i] = rand() % 1000;
     }
-    // display(A,n);
+    display(A,n);
 
     start = clock();
     insertion_sort(A, n);
@@ -52,7 +52,7 @@ int main()
 
     time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-    // display(A, n);
+    display(A, n);
     printf("Time taken is %lf seconds\n", time_taken);
     return 0;
 }

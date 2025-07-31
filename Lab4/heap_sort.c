@@ -36,13 +36,12 @@ void heap_sort(int A[], int n){
     {
         temp = A[i];
         A[i] = A[1];
-        A[1] = A[i];
+        A[1] = temp;
         n -= 1;
         max_heapify(A, 1, n);
     }
     
 }
-
 
 void display(int A[], int n)
 {
