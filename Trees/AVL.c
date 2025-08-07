@@ -73,24 +73,24 @@ void updateHeight(struct BinaryTree *node)
 
 void display(struct BinaryTree *root)
 {
-    if (root == NULL)
-    {
-        return;
-    }
+    // if (root == NULL)
+    // {
+    //     return;
+    // }
 
-    printf("Value: %d \t height: %d \t", root->data, root->height);
-    if (root->left)
-        printf("Left: %d \t", root->left->data);
-    else
-        printf("Left: Null \t");
+    // printf("Value: %d \t height: %d \t", root->data, root->height);
+    // if (root->left)
+    //     printf("Left: %d \t", root->left->data);
+    // else
+    //     printf("Left: Null \t");
 
-    if (root->right)
-        printf("Right: %d \n", root->right->data);
-    else
-        printf("Right: Null \n");
+    // if (root->right)
+    //     printf("Right: %d \n", root->right->data);
+    // else
+    //     printf("Right: Null \n");
 
-    display(root->left);
-    display(root->right);
+    // display(root->left);
+    // display(root->right);
 }
 
 struct BinaryTree *leftRotate(struct BinaryTree *node)
@@ -151,8 +151,8 @@ struct BinaryTree *leftRightRotation(struct BinaryTree *node)
 
 int getHeight(struct BinaryTree *node)
 {
-    if (root)
-        return root->height;
+    if (node)
+        return node->height;
     else
         return 0;
 }
@@ -182,19 +182,19 @@ struct BinaryTree *insert(struct BinaryTree *root, int value)
 
     // if left side is longer and new data is inserted to left of left
     if (balance > 1 && value < root->left->data)
-        rightRotate(root);
+        return rightRotate(root);
 
     // if right side is longer and new data is inserted to right of right
     if (balance < -1 && value > root->right->data)
-        leftRotate(root);
+        return leftRotate(root);
 
     // if left side is longer and new data is inserted to right of left
     if (balance > 1 && value > root->left->data)
-        leftRightRotation(root);
+        return leftRightRotation(root);
 
     // if right side is longer and new data is inserted to left of right
     if (balance < -1 && value < root->right->data)
-        rightLeftRotation(root);
+        return rightLeftRotation(root);
 
     return root;
 }
